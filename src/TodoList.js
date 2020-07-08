@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from "react";
+import './style.css';
 
 class TodoList extends Component {
 
@@ -14,7 +15,9 @@ class TodoList extends Component {
     return (
       <Fragment>
         <div>
+          {/* 下面是一个input框 */}
           <input
+            className='input'
             value={this.state.inputValue}
             onChange={this.handleInputChange.bind(this)}
           />
@@ -41,6 +44,8 @@ class TodoList extends Component {
     })
   }
   handleItemDelte(index) {
+    // immutable
+    // state 不允许我们做任何的改变
     const list = [...this.state.list]
     list.splice(index, 1)
     this.setState({
