@@ -15,8 +15,10 @@ class TodoList extends Component {
     return (
       <Fragment>
         <div>
+          <label htmlFor="intertArea">输入内容</label>
           {/* 下面是一个input框 */}
           <input
+            id="intertArea"
             className='input'
             value={this.state.inputValue}
             onChange={this.handleInputChange.bind(this)}
@@ -25,10 +27,17 @@ class TodoList extends Component {
         </div>
         <ul>
           {this.state.list.map((item, index) => {
-            return <li key={index} onClick={this.handleItemDelte.bind(this, index)}>{item}</li>
+            return (
+              <li
+                key={index}
+                onClick={this.handleItemDelte.bind(this, index)}
+                dangerouslySetInnerHTML={{ __html: item }}
+              >
+              </li>
+            )
           })}
         </ul>
-      </Fragment>
+      </Fragment >
     )
   }
 
